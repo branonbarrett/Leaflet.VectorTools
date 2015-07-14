@@ -2,7 +2,7 @@
 Leaflet.VectorTools 0.0.1+ requires [Leaflet 0.7](https://github.com/Leaflet/Leaflet/archive/v0.7.zip) or higher.
 
 #Leaflet.VectorTools
-Extending [Leaflet.draw](https://github.com/Leaflet/Leaflet.draw) Leaflet.VectorTools adds support for adding user defined vector tools on a toolbar in [Leaflet maps](https://github.com/Leaflet/Leaflet).
+This project is a fork of [Leaflet.draw](https://github.com/Leaflet/Leaflet.draw). Leaflet.VectorTools adds support for adding user defined vector tools on a toolbar in [Leaflet maps](https://github.com/Leaflet/Leaflet). For example, if you need to add two tools that draw a rectangle on the map you can do that. You also have the ability to define a custom draw:created event name using the onCreatedEvent option, which allows you to have different code paths for the same tool types.
 
 ## Table of Contents
 [Using the plugin](#using)  
@@ -29,7 +29,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 ### Adding the edit toolbar
 
-To use the edit toolbar you must initialise the Leaflet.draw control and manually add it to the map.
+To use the edit toolbar you must initialise the Leaflet.VectorTools control and manually add it to the map.
 
 ````js
 // create a map in the "map" div, set the view to a given place and zoom
@@ -57,7 +57,7 @@ The key here is the `featureGroup` option. This tells the plugin which `FeatureG
 
 ### Events
 
-Once you have successfully added the Leaflet.draw plugin to your map you will want to respond to the different actions users can initiate. The following events will be triggered on the map:
+Once you have successfully added the Leaflet.VectorTools plugin to your map you will want to respond to the different actions users can initiate. The following events will be triggered on the map:
 
 #### draw:created
 
@@ -163,7 +163,7 @@ You can configure the plugin by using the different options listed here.
 
 ### Control.Draw
 
-These options make up the root object that is used when initialising the Leaflet.draw control.
+These options make up the root object that is used when initialising the Leaflet.VectorTools control.
 
 | Option | Type | Default | Description
 | --- | --- | --- | ---
@@ -275,9 +275,9 @@ E.g. The edit options below will maintain the layer color and set the edit opaci
 | --- | --- | --- | ---
 
 <a name="drawlocal" />
-#### Customizing language and text in Leaflet.draw
+#### Customizing language and text in Leaflet.VectorTools
 
-Leaflet.draw uses the `L.drawLocal` configuration object to set any text used in the plugin. Customizing this will allow support for changing the text or supporting another language.
+Leaflet.VectorTools uses the `L.drawLocal` configuration object to set any text used in the plugin. Customizing this will allow support for changing the text or supporting another language.
 
 See [Leaflet.draw.js](https://github.com/Leaflet/Leaflet.draw/blob/master/src/Leaflet.draw.js) for the default strings.
 
@@ -296,7 +296,7 @@ L.drawLocal.draw.handlers.rectangle.tooltip.start = 'Not telling...';
 
 The following examples outline some common tasks.
 
-### Example Leaflet.draw config
+### Example Leaflet.VectorTools config
 
 The following example will show you how to:
 
@@ -404,7 +404,7 @@ var drawControl = new L.Control.Draw({
 
 ### Changing a drawing handlers options
 
-You can change a draw handlers options after initialisation by using the `setDrawingOptions` method on the Leaflet.draw control.
+You can change a draw handlers options after initialisation by using the `setDrawingOptions` method on the Leaflet.VectorTools control.
 
 E.g. to change the colour of the rectangle:
 
