@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet.draw vector editing handlers</title>
+
+	<script src="libs/leaflet-src.js"></script>
+	<link rel="stylesheet" href="libs/leaflet.css" />
+
+	<script src="../src/Leaflet.draw.js"></script>
+	<link rel="stylesheet" href="../dist/leaflet.draw.css" />
+
+	<script src="../src/Toolbar.js"></script>
+	<script src="../src/Tooltip.js"></script>
+
+	<script src="../src/ext/GeometryUtil.js"></script>
+	<script src="../src/ext/LatLngUtil.js"></script>
+	<script src="../src/ext/LineUtil.Intersect.js"></script>
+	<script src="../src/ext/Polygon.Intersect.js"></script>
+	<script src="../src/ext/Polyline.Intersect.js"></script>
+
+
+	<script src="../src/draw/DrawToolbar.js"></script>
+	<script src="../src/draw/handler/Draw.Feature.js"></script>
+	<script src="../src/draw/handler/Draw.SimpleShape.js"></script>
+	<script src="../src/draw/handler/Draw.Polyline.js"></script>
+	<script src="../src/draw/handler/Draw.Circle.js"></script>
+	<script src="../src/draw/handler/Draw.Marker.js"></script>
+	<script src="../src/draw/handler/Draw.Polygon.js"></script>
+	<script src="../src/draw/handler/Draw.Rectangle.js"></script>
+
+
+	<script src="../src/edit/EditToolbar.js"></script>
+	<script src="../src/edit/handler/EditToolbar.Edit.js"></script>
+	<script src="../src/edit/handler/EditToolbar.Delete.js"></script>
+
+	<script src="../src/Control.Draw.js"></script>
+
+	<script src="../src/edit/handler/Edit.Poly.js"></script>
+	<script src="../src/edit/handler/Edit.SimpleShape.js"></script>
+	<script src="../src/edit/handler/Edit.Circle.js"></script>
+	<script src="../src/edit/handler/Edit.Rectangle.js"></script>
+	<script src="../src/edit/handler/Edit.Marker.js"></script>
+</head>
+<body>
+	<div id="map" style="width: 800px; height: 600px; border: 1px solid #ccc"></div>
+
+	<script>
+    	var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    		osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    		osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
+    		map = new L.Map('map', {layers: [osm], center: new L.LatLng(51.505, -0.04), zoom: 13}),
+    		drawnItems = L.featureGroup().addTo(map);
+
+    	var drawControl = new L.Control.Draw({
+            // draw: {
+            //     position: 'topright',
+            //     marker: null,
+            //     polyline: null,
+            //     circle: null,
+            //     rectangle: {
+            //         shapeOptions: {
+            //             color: '#3a638d'
+            //         }
+            //     },
+            //     polygon: {
+            //         title: 'Draw layer boundary',
+            //         allowIntersection: false,
+            //         drawError: {
+            //             color: '#b00b00',
+            //             timeout: 1000
+            //         },
+            //         shapeOptions: {
+            //             color: '#3a638d'
+            //         }
+            //     }
+            // },
+            tools: [
+            			{
+            				title:'tool 1',
+            				toolType:'drawPolygon',
+            				tooltip:'some tool tip here',
+            				options:{
+            					startDrawing:'this is a test'
+            				}
+            			},
+            			{
+            				title:'tool 2',
+            				toolType:'drawPolyline',
+            				tooltip:'some other tool tip here'
+            			},
+            			{
+            				title:'tool 3',
+            				toolType:'drawPolygon',
+            				tooltip:'yet another tool tip here'
+            			},
+            			{
+            				title:'tool 4',
+            				toolType:'drawPolygon',
+            				tooltip:'doh!'
+            			},
+            			{
+            				title:'tool 5',
+            				toolType:'drawRectangle',
+            				tooltip:'the life of the wife',
+            				options:{
+            					startDrawing:'Click and drag to draw a rectangle sucka!!!!!',
+                                shapeOptions: {
+                                    stroke: true,
+                                    color: 'blue',
+                                    weight: 4,
+                                    opacity: 0.5,
+                                    fill: true,
+                                    fillOpacity: 0.2,
+                                    clickable: true,
+                                }
+            				}
+            			},
+            			{
+            				title:'tool 6',
+            				toolType:'drawRectangle',
+            				tooltip:'was taken by the knife',
+            				options:{
+            					startDrawing:'Click and drag to draw a rectangle yo!',
+                                onCreatedEvent: 'selectArea:created',
+                                shapeOptions: {
+                                    stroke: true,
+                                    color: 'red',
+                                    weight: 10,
+                                    opacity: 0.5,
+                                    fill: true,
+                                    fillOpacity: 0.2,
+                                    clickable: true,
+                                }
+            				}
+            			}
+        			]
+        });
+
+        map.addControl(drawControl);
+    	
+        map.on('draw:created', function(event) {
+        	console.log('caught event from default event');
+            var layer = event.layer;
+        	drawnItems.addLayer(layer);
+        });
+
+        map.on('selectArea:created', function(event) {
+            console.log('caught event from our custom event');
+            // var layer = event.layer;
+            // drawnItems.addLayer(layer);
+        });
+
+	</script>
+</body>
+</html>

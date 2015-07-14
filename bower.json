@@ -1,0 +1,52 @@
+{
+  "name": "leaflet.vectortools",
+  "description": "Vector tools plugin for Leaflet",
+  "version": "0.0.1",
+  "main": [
+    "dist/leaflet.vectortools.js",
+    "dist/leaflet.vectortools.css",
+    "dist/images/spritesheet-2x.png",
+    "dist/images/spritesheet.png"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "src",
+    "doc",
+    "examples",
+    "test",
+    "build",
+    "spec",
+    "*.md",
+    "Gruntfile.js",
+    "Jakefile.js",
+    "package.json",
+    "bower.json"
+  ],
+  "keywords": [
+    "javascript",
+    "leaflet",
+    "maps",
+    "client",
+    "vector",
+    "drawing",
+    "draw"
+  ],
+  "authors": [
+    {
+      "name": "Jacob Toye"
+    }
+  ],
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leaflet/Leaflet.draw.git"
+  },
+  "dependencies": {
+    "leaflet-dist": "0.7.x"
+  },
+  "devDependencies": {
+    "leaflet": "~0.7.0",
+    "qunit": "~1.18.0"
+  }
+}
