@@ -1,8 +1,8 @@
 /*
- * Leaflet.draw assumes that you have already included the Leaflet library.
+ * Leaflet.VectorTools assumes that you have already included the Leaflet library.
  */
 
-L.drawVersion = '0.2.4-dev';
+L.vectorToolsVersion = '0.0.1-dev';
 
 L.drawLocal = {
 	draw: {
