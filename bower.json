@@ -1,5 +1,5 @@
 {
-  "name": "leaflet.vectortools",
+  "name": "leaflet.VectorTools",
   "description": "Vector tools plugin for Leaflet",
   "version": "0.0.1",
   "main": [

@@ -76,51 +76,42 @@
             // },
             tools: [
             			{
-            				title:'tool 1',
+            				title:'draw polygon tool',
             				toolType:'drawPolygon',
-            				tooltip:'some tool tip here',
+            				tooltip:'User added tooltip for drawPolygon toolType',
             				options:{
             					startDrawing:'this is a test'
             				}
             			},
             			{
-            				title:'tool 2',
+            				title:'draw polyline tool',
             				toolType:'drawPolyline',
-            				tooltip:'some other tool tip here'
+            				tooltip:'User added tooltip for drawPolyline toolType'
             			},
             			{
-            				title:'tool 3',
+            				title:'draw circle tool',
+            				toolType:'drawCircle',
+            				tooltip:'Tooltip for drawCircle toolType'
+            			},
+            			{
+            				title:'draw polygon tool too',
             				toolType:'drawPolygon',
-            				tooltip:'yet another tool tip here'
+            				tooltip:'User added tooltip for another drawPolygon toolType'
             			},
             			{
-            				title:'tool 4',
-            				toolType:'drawPolygon',
-            				tooltip:'doh!'
-            			},
-            			{
-            				title:'tool 5',
+            				title:'draw rectangle tool',
             				toolType:'drawRectangle',
-            				tooltip:'the life of the wife',
+            				tooltip:'User added tooltip for drawRectangle toolType',
             				options:{
-            					startDrawing:'Click and drag to draw a rectangle sucka!!!!!',
-                                shapeOptions: {
-                                    stroke: true,
-                                    color: 'blue',
-                                    weight: 4,
-                                    opacity: 0.5,
-                                    fill: true,
-                                    fillOpacity: 0.2,
-                                    clickable: true,
-                                }
+            					startDrawing:'Click and drag to draw a rectangle: custom startDrawing message'
             				}
             			},
             			{
-            				title:'tool 6',
+            				title:'draw rectangle tool with custome onCreatedEvent and shapeOptions',
             				toolType:'drawRectangle',
-            				tooltip:'was taken by the knife',
+            				tooltip:'User added tooltip for drawRectangle toolType',
             				options:{
-            					startDrawing:'Click and drag to draw a rectangle yo!',
+            					startDrawing:'Click and drag to draw a rectangle: custom startDrawing message too',
                                 onCreatedEvent: 'selectArea:created',
                                 shapeOptions: {
                                     stroke: true,

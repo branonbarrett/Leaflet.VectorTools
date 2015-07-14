@@ -23,10 +23,10 @@ L.Draw.Circle = L.Draw.SimpleShape.extend({
 		this.type = L.Draw.Circle.TYPE + this._uid();
 		this.classNameSuffix = L.Draw.Circle.TYPE;
 
-		if (!options && !options.startDrawing) {
-			this._initialLabelText = L.drawLocal.draw.handlers.rectangle.tooltip.start;
-		} else {
+		if (options && options.startDrawing) {
 			this._initialLabelText = options.startDrawing;
+		} else {
+			this._initialLabelText = L.drawLocal.draw.handlers.rectangle.tooltip.start;
 		}
 
 		L.Draw.SimpleShape.prototype.initialize.call(this, map, options);
