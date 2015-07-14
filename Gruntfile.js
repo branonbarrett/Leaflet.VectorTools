@@ -7,7 +7,34 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['src/**/*.js'],
+        src: [
+                'src/Leaflet.VectorTools.js',
+                'src/Toolbar.js',
+                'src/Tooltip.js',
+                'src/ext/GeometryUtil.js',
+                'src/ext/LatLngUtil.js',
+                'src/ext/LineUtil.Intersect.js',
+                'src/ext/Polygon.Intersect.js',
+                'src/ext/Polyline.Intersect.js',
+                'src/draw/DrawToolbar.js',
+                'src/draw/handler/Draw.Feature.js',
+                'src/draw/handler/Draw.SimpleShape.js',
+                'src/draw/handler/Draw.Polyline.js',
+                'src/draw/handler/Draw.Circle.js',
+                'src/draw/handler/Draw.Marker.js',
+                'src/draw/handler/Draw.Polygon.js',
+                'src/draw/handler/Draw.Rectangle.js',
+                'src/edit/EditToolbar.js',
+                'src/edit/handler/EditToolbar.Edit.js',
+                'src/edit/handler/EditToolbar.Delete.js',
+                'src/Control.Draw.js',
+                'src/edit/handler/Edit.Poly.js',
+                'src/edit/handler/Edit.SimpleShape.js',
+                'src/edit/handler/Edit.Circle.js',
+                'src/edit/handler/Edit.Rectangle.js',
+                'src/edit/handler/Edit.Marker.js'
+        ],
+        //src: ['src/**/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
